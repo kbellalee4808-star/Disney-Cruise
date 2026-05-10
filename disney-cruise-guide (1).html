@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>디즈니 크루즈 완벽 가이드 🛳️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF8F4;
+    --bg2: #F3EFE8;
+    --card: #FFFFFF;
+    --navy: #1B3A5C;
+    --navy-light: #2A5080;
+    --gold: #C8973A;
+    --gold-light: #E8C068;
+    --text: #2C2C2C;
+    --text-sub: #6B6B6B;
+    --border: #E5DDD0;
+    --radius: 14px;
+    --shadow: 0 2px 16px rgba(28,58,92,0.07);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(200,151,58,.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, rgba(200,151,58,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-emoji { font-size: 48px; display: block; margin-bottom: 16px; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(200,151,58,.2);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    margin-bottom: 24px;
+  }
+  .hero-badges {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    color: rgba(255,255,255,.9);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── MAIN ── */
+  .container { max-width: 640px; margin: 0 auto; padding: 0 16px 80px; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 32px 0 14px;
+  }
+  .section-label .icon {
+    width: 36px; height: 36px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .section-label h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .section-label span {
+    font-size: 12px;
+    color: var(--text-sub);
+    font-weight: 400;
+  }
+
+  /* ── ACCORDION ── */
+  .accordion { display: flex; flex-direction: column; gap: 8px; }
+
+  .acc-item {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .acc-item.open { box-shadow: 0 4px 24px rgba(28,58,92,.12); }
+
+  .acc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    cursor: pointer;
+    user-select: none;
+    gap: 12px;
+  }
+  .acc-left { display: flex; align-items: center; gap: 12px; }
+  .acc-emoji { font-size: 20px; flex-shrink: 0; }
+  .acc-title { font-size: 15px; font-weight: 700; color: var(--navy); }
+  .acc-sub { font-size: 12px; color: var(--text-sub); font-weight: 400; margin-top: 2px; }
+  .acc-arrow {
+    color: var(--text-sub);
+    font-size: 12px;
+    transition: transform .25s;
+    flex-shrink: 0;
+  }
+  .acc-item.open .acc-arrow { transform: rotate(180deg); }
+
+  .acc-body {
+    display: none;
+    padding: 0 18px 18px;
+    border-top: 1px solid var(--border);
+  }
+  .acc-item.open .acc-body { display: block; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; margin-top: 14px; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--bg2);
+    font-size: 14px;
+    color: var(--text);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li .ck {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background: var(--bg);
+    cursor: pointer;
+    transition: all .15s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    color: transparent;
+  }
+  .checklist li.checked .ck {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #fff;
+  }
+  .checklist li.checked span { color: var(--text-sub); text-decoration: line-through; }
+
+  /* ── TIP BOX ── */
+  .tip-box {
+    background: var(--bg2);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 14px;
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .tip-box strong { color: var(--navy); }
+
+  /* ── INFO LIST ── */
+  .info-list { list-style: none; margin-top: 14px; }
+  .info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--bg2);
+    font-size: 14px;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list li .dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* ── TABLE ── */
+  .guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 13px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .guide-table th {
+    background: var(--navy);
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .guide-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--bg2);
+    vertical-align: top;
+  }
+  .guide-table tr:last-child td { border-bottom: none; }
+  .guide-table tr:nth-child(even) td { background: var(--bg); }
+
+  /* ── SPECIAL CARD ── */
+  .special-card {
+    background: linear-gradient(135deg, #1B3A5C 0%, #2A5080 100%);
+    border-radius: var(--radius);
+    padding: 20px;
+    color: #fff;
+    margin-top: 14px;
+  }
+  .special-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .special-card p, .special-card li {
+    font-size: 13px;
+    color: rgba(255,255,255,.85);
+    line-height: 1.7;
+  }
+  .special-card ul { list-style: none; }
+  .special-card ul li { padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .special-card ul li::before { content: '→'; color: var(--gold-light); flex-shrink: 0; }
+
+  /* ── MENU CARD ── */
+  .menu-restaurant {
+    background: var(--bg2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 10px;
+  }
+  .menu-restaurant h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .menu-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 10px 0 6px;
+  }
+  .menu-item {
+    font-size: 13px;
+    color: var(--text);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item .kr { font-size: 11px; color: var(--text-sub); text-align: right; flex-shrink: 0; }
+  .star { color: var(--gold); font-size: 11px; }
+
+  /* ── ALERT ── */
+  .alert {
+    background: #FFF8E7;
+    border: 1px solid var(--gold-light);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--text);
+    margin-top: 14px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .alert .ai { flex-shrink: 0; font-size: 16px; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.6);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong { color: rgba(255,255,255,.9); font-size: 14px; display: block; margin-bottom: 6px; }
+
+  /* ── DAY BADGE ── */
+  .day-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 16px 0;
+  }
+
+  /* ── INNER ACCORDION ── */
+  .inner-acc { margin-top: 10px; }
+  .inner-acc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--bg2);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .inner-acc-body { padding: 4px 4px 10px; display: none; }
+  .inner-acc-body.open { display: block; }
+
+  /* ── SCROLL TOP ── */
+  .scroll-top {
+    position: fixed;
+    bottom: 24px; right: 20px;
+    width: 44px; height: 44px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(28,58,92,.3);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity .3s;
+    z-index: 100;
+  }
+  .scroll-top.show { opacity: 1; }
+
+  @media (min-width: 520px) {
+    .hero h1 { font-size: 30px; }
+    .container { padding: 0 24px 80px; }
+  }
+
+  @media (max-width: 320px) {
+    .hero h1 { font-size: 22px; }
+    .acc-title { font-size: 14px; }
+  }
+
+  /* safe area */
+  .footer { padding-bottom: calc(32px + env(safe-area-inset-bottom)); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-emoji">🛳️</span>
+  <div class="hero-tag">Disney Cruise Line</div>
+  <h1>싱가포르 디즈니 크루즈<br>완벽 가이드</h1>
+  <p>3박 4일 · 싱가포르 출항 · 마리나베이 터미널</p>
+  <div class="hero-badges">
+    <span class="badge">✈️ 출발 전 준비</span>
+    <span class="badge">🎡 승선 꿀팁</span>
+    <span class="badge">🍽️ 식당 메뉴</span>
+    <span class="badge">👶 키즈클럽</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ── 출발 전 ── -->
+  <div class="section-label">
+    <div class="icon">✈️</div>
+    <div>
+      <h2>출발 전 체크리스트</h2>
+      <span>이것만 해가면 걱정 없어요</span>
+    </div>
+  </div>
+  <div class="accordion">
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">📱</span>
+          <div>
+            <div class="acc-title">앱 & 서류 준비</div>
+            <div class="acc-sub">출발 2주 전 완료 권장</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="checklist" id="cl1">
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>디즈니 크루즈 앱 사전 다운로드 (현지 받으면 느림 — 꼭 미리!)</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>웹 체크인 완료</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>QR코드 인쇄 해가기</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>싱가포르 입국심사 사전 신청</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>여권 유효기간 6개월 이상 확인</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🧳</span>
+          <div>
+            <div class="acc-title">짐 & 통신</div>
+            <div class="acc-sub">핸드캐리 필수품 챙기기</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="checklist">
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>공항 사전 좌석 지정</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>로밍 또는 이심 신청</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>그랩(Grab) 앱 다운로드 + 카드 미리 등록</span></li>
+        </ul>
+        <div class="tip-box">
+          <strong>⚠️ 핸드캐리 필수!</strong><br>
+          체크인 시 큰 짐은 맡겨지므로 짐 오기 전까지 필요한 것은 직접 들고 타야 해요.<br>
+          <strong>충전기 · 수영복 · 슬리퍼 · 갈아입을 옷</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🎉</span>
+          <div>
+            <div class="acc-title">사전 요청 & 예약</div>
+            <div class="acc-sub">기념일이 있다면 필수!</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="checklist">
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>기념일 있을 경우 헐리우드 / 애니메이터 식당 예약 메일 발송 (방번호, 이름 포함)</span></li>
+        </ul>
+        <div class="tip-box">
+          <strong>💡 공연 예약도 미리!</strong><br>
+          Remember 공연은 3일 중 단 1회만 있어요. 앱에서 날짜 확인 후 바로 예약하세요.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SPECIAL ── -->
+  <div class="section-label">
+    <div class="icon">✨</div>
+    <div>
+      <h2>SPECIAL — 디즈니만의 문화</h2>
+      <span>이걸 알고 가면 10배 더 재밌어요</span>
+    </div>
+  </div>
+  <div class="accordion">
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🚪</span>
+          <div>
+            <div class="acc-title">문 꾸미기 (Door Decoration)</div>
+            <div class="acc-sub">자석 재질 · 테이프 금지</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="info-list">
+          <li><div class="dot"></div><div>객실 문은 <strong>자석이 붙는 금속 재질</strong> — 나만의 캔버스로 활용!</div></li>
+          <li><div class="dot"></div><div>스티커·테이프는 도색 손상으로 <strong>금지</strong>, 강력 자석만 사용</div></li>
+          <li><div class="dot"></div><div><strong>이름 자석 추천</strong> — 복도에서 이웃이 이름 불러주며 자연스럽게 인사</div></li>
+          <li><div class="dot"></div><div>여행 목적(첫 크루즈, 생일, 기념일)을 테마로 꾸미면 더 많은 축하 인사!</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🐟</span>
+          <div>
+            <div class="acc-title">피쉬 익스텐션 (Fish Extender)</div>
+            <div class="acc-sub">배 위의 비밀 산타</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <p style="font-size:14px; color:var(--text-sub); margin-top:12px; margin-bottom:14px;">문 옆 물고기 모양 고리에 주머니를 달아두고, 매칭된 팀원들과 작은 선물을 주고받는 활동이에요.</p>
+        <div class="special-card">
+          <h3>🎁 추천 선물 아이템</h3>
+          <ul>
+            <li>카드키 랜야드 (Lanyard)</li>
+            <li>선실 내 자석 고리</li>
+            <li>수건 고정용 집게</li>
+            <li>한국 전통 문양 책갈피 / 소포장 간식</li>
+            <li>방번호·SNS 연결 QR코드 카드 동봉</li>
+          </ul>
+        </div>
+        <div class="alert">
+          <span class="ai">⚠️</span>
+          <span>선물 30개 이상 준비 추천! 받을 만큼 빈 가방 하나 더 챙기세요.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 1일차 ── -->
+  <div class="section-label">
+    <div class="icon">🏁</div>
+    <div>
+      <h2>1일차 — 승선 당일</h2>
+      <span>마리나베이 크루즈 터미널</span>
+    </div>
+  </div>
+  <div class="accordion">
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">📶</span>
+          <div>
+            <div class="acc-title">승선 직후 할 일</div>
+            <div class="acc-sub">타자마자 바로!</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="checklist">
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>크루즈 와이파이 신청 (유료)</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>터미널 Guest 와이파이 연결 → 크루즈 맵 확인</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>공연 예약 체크 (Remember 공연 날짜 확인!)</span></li>
+          <li onclick="toggleCheck(this)"><div class="ck">✓</div><span>저녁 식사 시간 확인 후 지정 레스토랑 방문</span></li>
+        </ul>
+        <div class="tip-box">
+          <strong>🎭 Remember 공연 꿀팁</strong><br>
+          공연장은 <strong>7층</strong>. 1시간 전부터 줄서기! 4번째 가운데 자리 선점 추천 (1~3열은 컨시어지 전용).
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🍽️</span>
+          <div>
+            <div class="acc-title">식사 안내</div>
+            <div class="acc-sub">시간 놓치면 워크인으로</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="info-list">
+          <li><div class="dot"></div><div>저녁식사는 시간 내 지정 레스토랑에서 — 시간 지나면 입장 불가</div></li>
+          <li><div class="dot"></div><div>놓쳤을 경우 → 앱에서 열린 식당 확인 후 <strong>워크인 가능</strong></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2일차 ── -->
+  <div class="section-label">
+    <div class="icon">🌊</div>
+    <div>
+      <h2>2일차 — 수영장 & 부대시설</h2>
+      <span>오후 5시 30분 = 놀이기구 예약 타임</span>
+    </div>
+  </div>
+  <div class="accordion">
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🎡</span>
+          <div>
+            <div class="acc-title">놀이기구 예약 방법</div>
+            <div class="acc-sub">5:30 정각에 오픈 — 순식간에 매진!</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="alert">
+          <span class="ai">⚡</span>
+          <span><strong>매일 오후 5:30</strong>부터 다음날 놀이기구 예약 오픈! 순식간에 매진되니 정각에 바로 예약하세요.</span>
+        </div>
+        <ul class="info-list" style="margin-top:14px;">
+          <li><div class="dot"></div><div>앱 열기 → <strong>+ Add Plan</strong> 클릭</div></li>
+          <li><div class="dot"></div><div><strong>Attractions (어트랙션)</strong> 선택</div></li>
+          <li><div class="dot"></div><div>인원 선택 → 시간 선택 → 완료</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🏊</span>
+          <div>
+            <div class="acc-title">수영장 이용법</div>
+            <div class="acc-sub">어린이/어른 구역 분리</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <table class="guide-table">
+          <tr>
+            <th>구분</th><th>위치</th><th>특징</th>
+          </tr>
+          <tr>
+            <td>어린이</td>
+            <td>메인 수영장</td>
+            <td>크루즈 제공 구명조끼만 착용 (개인 기구 불가)</td>
+          </tr>
+          <tr>
+            <td>어른</td>
+            <td>18층</td>
+            <td>인피니티 풀라운지 (놀이기구 지나서)</td>
+          </tr>
+        </table>
+        <ul class="info-list" style="margin-top:12px;">
+          <li><div class="dot"></div><div>타월 무료 이용 가능</div></li>
+          <li><div class="dot"></div><div>추천 준비물: 래시가드, 모자, 물안경</div></li>
+          <li><div class="dot"></div><div>가드 상주 → 안전하게 이용 가능</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 꿀팁 ── -->
+  <div class="section-label">
+    <div class="icon">💡</div>
+    <div>
+      <h2>꿀팁 모아보기</h2>
+      <span>알면 돈 버는 정보들</span>
+    </div>
+  </div>
+  <div class="accordion">
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🍕</span>
+          <div>
+            <div class="acc-title">무료 음식 & 음료</div>
+            <div class="acc-sub">다 공짜예요!</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <table class="guide-table">
+          <tr><th>장소</th><th>메뉴</th></tr>
+          <tr><td>10층 오하이오</td><td>수제햄버거, 김치핫도그</td></tr>
+          <tr><td>10층 그랜마</td><td>치킨 & 고기볶음 (방 가져가도 됨)</td></tr>
+          <tr><td>17층 입구</td><td>아이스크림 🍦</td></tr>
+          <tr><td>수영장 옆</td><td>피자 🍕</td></tr>
+          <tr><td>10층·17층</td><td>음료 무료 이용 가능</td></tr>
+        </table>
+        <div class="tip-box" style="margin-top:12px;">
+          <strong>💧 식수</strong><br>
+          욕실·화장실에서 받아 마셔도 돼요. <strong>Drink 표시</strong> 꼭 확인!
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🛏️</span>
+          <div>
+            <div class="acc-title">객실 꿀팁</div>
+            <div class="acc-sub">룸서비스 24시간</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <ul class="info-list">
+          <li><div class="dot"></div><div>침대 옆 <strong>USB & C타입</strong> 콘센트 있음</div></li>
+          <li><div class="dot"></div><div>휴대용 멀티탭 챙기면 편리</div></li>
+          <li><div class="dot"></div><div><strong>다이슨 드라이기</strong> 사용 가능</div></li>
+          <li><div class="dot"></div><div><strong>24시간 룸서비스</strong> 이용 가능</div></li>
+        </ul>
+        <div class="tip-box">
+          <strong>📞 룸서비스 주문법</strong><br>
+          전화기 룸서비스 버튼 → 방번호·알러지 확인 → 주문<br>
+          배달 소요: <strong>30분~1시간</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">👶</span>
+          <div>
+            <div class="acc-title">키즈클럽 (8층 초록 바닥)</div>
+            <div class="acc-sub">보증금 $25 · Secret Word 설정 필수</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <table class="guide-table">
+          <tr><th>연령</th><th>장소</th><th>특징</th></tr>
+          <tr><td>6개월~3세</td><td>유아 키즈클럽</td><td>잠자는 침대 있음</td></tr>
+          <tr><td>4~10세</td><td>어린이 키즈클럽</td><td>캐릭터 자주 방문</td></tr>
+          <tr><td>11~17세</td><td>엣지 (Edge)</td><td>게임기 & 오락실</td></tr>
+        </table>
+        <div class="tip-box" style="margin-top:12px;">
+          <strong>보증금 $25</strong> — 마지막날 팔찌 반납 시 환불<br>
+          <strong>Secret Word</strong> 설정 필수 (숫자 또는 단어)
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🍶</span>
+          <div>
+            <div class="acc-title">술 반입 규정</div>
+            <div class="acc-sub">소주는 라벨 제거 시 가능</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <table class="guide-table">
+          <tr><th>주류</th><th>허용 여부</th></tr>
+          <tr><td>와인</td><td>✅ 1병</td></tr>
+          <tr><td>맥주</td><td>✅ 6캔 (355ml, 500ml 불가)</td></tr>
+          <tr><td>독주</td><td>❌ 불가</td></tr>
+          <tr><td>소주</td><td>⚠️ 라벨 제거 시 반입 가능</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 메뉴판 ── -->
+  <div class="section-label">
+    <div class="icon">🍽️</div>
+    <div>
+      <h2>식당별 메뉴판</h2>
+      <span>저녁 식사 메뉴 미리 보기</span>
+    </div>
+  </div>
+  <div class="accordion">
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🎨</span>
+          <div>
+            <div class="acc-title">애니메이터스 팔레트</div>
+            <div class="acc-sub">Animator's Palate</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="menu-category">에피타이저 (Small Plates)</div>
+        <div class="menu-item"><span>Korean BBQ Beef Steamed Bao</span><span class="kr">한국식 소고기 찐빵</span></div>
+        <div class="menu-item"><span>Dragon Roll</span><span class="kr">드래곤롤</span></div>
+        <div class="menu-item"><span>Chicken Satay</span><span class="kr">닭파치구이 + 땅콩소스</span></div>
+        <div class="menu-item"><span>Wonton Soup</span><span class="kr">닭고기 만두 국</span></div>
+        <div class="menu-item"><span>Molokai Corn & Taro Chowder</span><span class="kr">하와이식 차우더</span></div>
+        <div class="menu-category">메인 (Entrées)</div>
+        <div class="menu-item"><span>Laksa Lemak</span><span class="kr">락사 르막 (말레이시아 국물)</span></div>
+        <div class="menu-item"><span>Murgh Makhani Butter Chicken</span><span class="kr">버터치킨커리</span></div>
+        <div class="menu-item"><span>Carved Slow-roasted Rosemary Beef Tenderloin <span class="star">⭐</span></span><span class="kr">안심 스테이크</span></div>
+        <div class="menu-item"><span>Hainanese Chicken, Rice</span><span class="kr">하이난식 치킨라이스</span></div>
+        <div class="menu-item"><span>Banana Leaf Steamed Salmon</span><span class="kr">바나나잎 연어찜</span></div>
+        <div class="menu-category">디저트</div>
+        <div class="menu-item"><span>Salted Caramel Cheesecake</span><span class="kr">솔티드 카라멜 치즈케이크</span></div>
+        <div class="menu-item"><span>Chocolate Decadence</span><span class="kr">다크초코 크림 헤이즐넛 쉬폰</span></div>
+        <div class="menu-item"><span>Cappuccino Mousse (노슈거)</span><span class="kr">카푸치노 무스</span></div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🎬</span>
+          <div>
+            <div class="acc-title">픽사 플레이스 / 인챈티드 가든</div>
+            <div class="acc-sub">Pixar Place / Enchanted Garden</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="menu-category">에피타이저 (Small Plates)</div>
+        <div class="menu-item"><span>Pork & Shrimp Shumai</span><span class="kr">돼지고기·새우 슈마이 (딤섬)</span></div>
+        <div class="menu-item"><span>Green Papaya Salad</span><span class="kr">태국 '솜탐' 파파야 샐러드</span></div>
+        <div class="menu-item"><span>Summer Roll</span><span class="kr">베트남 월남쌈</span></div>
+        <div class="menu-item"><span>Hot Sour Soup</span><span class="kr">중국식 산라탕</span></div>
+        <div class="menu-item"><span>French Onion Soup</span><span class="kr">양파스프 + 크루통, 치즈</span></div>
+        <div class="menu-category">메인 (Entrées)</div>
+        <div class="menu-item"><span>Shiromaru (돼지고기 포함)</span><span class="kr">돈코츠 라면</span></div>
+        <div class="menu-item"><span>Chicken Shahi Korma</span><span class="kr">치킨카레 (밥, 빵, 난, 소스)</span></div>
+        <div class="menu-item"><span>Seared Verlasso Salmon <span class="star">⭐</span></span><span class="kr">연어스테이크 + 오렌지소스</span></div>
+        <div class="menu-item"><span>Roasted Prime Rib of Beef <span class="star">⭐</span></span><span class="kr">소고기 스테이크</span></div>
+        <div class="menu-item"><span>Hainanese Chicken, Rice</span><span class="kr">하이난식 치킨 라이스</span></div>
+        <div class="menu-category">디저트</div>
+        <div class="menu-item"><span>White Chocolate Bread Pudding</span><span class="kr">화이트초코 프렌치토스트 푸딩</span></div>
+        <div class="menu-item"><span>Lemon Thai Basil Tart</span><span class="kr">레몬 타이바질 타르트</span></div>
+        <div class="menu-item"><span>Coconut Rice Pudding (노슈거)</span><span class="kr">코코넛 라이스 푸딩</span></div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🎭</span>
+          <div>
+            <div class="acc-title">헐리우드 & 바인 / 네비게이터</div>
+            <div class="acc-sub">Hollywood & Vine / Navigator's</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="menu-category">에피타이저 (Small Plates)</div>
+        <div class="menu-item"><span>Porcini Ahi Tuna Sashimi <span class="star">⭐</span></span><span class="kr">황다랑어 참치사시미</span></div>
+        <div class="menu-item"><span>Duck Confit Pastilla</span><span class="kr">오리, 사프란 모로코식 파이</span></div>
+        <div class="menu-item"><span>Thai Shrimp Pumpkin Soup</span><span class="kr">태국식 새우 단호박스프</span></div>
+        <div class="menu-item"><span>Roasted Roma Tomato Soup</span><span class="kr">구운 토마토 스프</span></div>
+        <div class="menu-category">메인 (Entrées)</div>
+        <div class="menu-item"><span>Thai Boat Noodles</span><span class="kr">태국식 쌀국수</span></div>
+        <div class="menu-item"><span>Chicken Tikka Masala</span><span class="kr">인도식 치킨카리</span></div>
+        <div class="menu-item"><span>Miso-glazed Chilean Sea Bass</span><span class="kr">메로(생선) 된장구이 + 김치</span></div>
+        <div class="menu-item"><span>Peppered Filet Mignon <span class="star">⭐</span></span><span class="kr">소안심 스테이크</span></div>
+        <div class="menu-item"><span>Lobster Salad <span class="star">⭐</span></span><span class="kr">랍스타 샐러드</span></div>
+        <div class="menu-item"><span>Hainanese Chicken, Rice</span><span class="kr">하이난식 닭고기요리, 밥</span></div>
+        <div class="menu-category">디저트</div>
+        <div class="menu-item"><span>Chocolate Molten Cake <span class="star">⭐</span></span><span class="kr">초콜릿 몰튼 케이크 + 말차 아이스크림</span></div>
+        <div class="menu-item"><span>Ube Crème Brûlée</span><span class="kr">우베 크림 브뉼레</span></div>
+        <div class="menu-item"><span>Coconut-Tapioca Pudding (노슈거)</span><span class="kr">코코넛 타피오카 푸딩</span></div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🛎️</span>
+          <div>
+            <div class="acc-title">룸서비스 (24시간)</div>
+            <div class="acc-sub">조식 별도 · 언제든 주문 가능</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="menu-category">메인</div>
+        <div class="menu-item"><span>All Hands on Deck</span><span class="kr">치즈 플레터</span></div>
+        <div class="menu-item"><span>Chicken Wonton Soup</span><span class="kr">치킨 완탕 (국물)</span></div>
+        <div class="menu-item"><span>Rasam Indian Tomato Soup</span><span class="kr">토마토스프 + 난</span></div>
+        <div class="menu-item"><span>Pennette Bolognaise</span><span class="kr">펜네 볼로네제 파스타</span></div>
+        <div class="menu-item"><span>Grilled Angus Cheeseburger</span><span class="kr">치즈버거</span></div>
+        <div class="menu-item"><span>Crisp Breaded Chicken Tenders</span><span class="kr">치킨텐더</span></div>
+        <div class="menu-item"><span>Dan-Dan Noodles (돼지고기 포함)</span><span class="kr">매콤 돼지고기</span></div>
+        <div class="menu-item"><span>Dal Makhani</span><span class="kr">커리 (채식)</span></div>
+        <div class="menu-item"><span>Grilled Salmon Salad</span><span class="kr">연어샐러드</span></div>
+        <div class="menu-category">디저트</div>
+        <div class="menu-item"><span>New York Cheesecake</span><span class="kr">치즈케이크</span></div>
+        <div class="menu-item"><span>Chocolate Truffle Cake</span><span class="kr">초코케이크</span></div>
+        <div class="tip-box" style="margin-top:12px;">
+          📞 전화기 룸서비스 버튼 → 5~10분 대기 → 방번호 & 알러지 확인 후 주문<br>
+          배달: <strong>30분~1시간</strong> · 다 드신 후 하우스키퍼에게 치워달라고 요청
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 키즈 메뉴 ── -->
+  <div class="section-label">
+    <div class="icon">🍭</div>
+    <div>
+      <h2>키즈 메뉴</h2>
+      <span>아이 전용 식사 메뉴</span>
+    </div>
+  </div>
+  <div class="accordion">
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-left">
+          <span class="acc-emoji">🧒</span>
+          <div>
+            <div class="acc-title">공통 키즈 메뉴 (모든 식당)</div>
+            <div class="acc-sub">에피타이저 · 메인 · 영양식 · 디저트</div>
+          </div>
+        </div>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="menu-category">에피타이저</div>
+        <div class="menu-item"><span>Soup of the Day</span><span class="kr">오늘의 수프</span></div>
+        <div class="menu-item"><span>Garden Salad</span><span class="kr">그린샐러드</span></div>
+        <div class="menu-category">메인</div>
+        <div class="menu-item"><span>Chicken Katsu</span><span class="kr">치킨까스</span></div>
+        <div class="menu-item"><span>Mini Cheeseburger</span><span class="kr">치즈버거</span></div>
+        <div class="menu-item"><span>Pizza (식당별 상이)</span><span class="kr">피자</span></div>
+        <div class="menu-category">Disney Check Meal (영양식)</div>
+        <div class="menu-item"><span>Grilled Chicken</span><span class="kr">닭구이 + 볶음밥, 채소, 유유물</span></div>
+        <div class="menu-item"><span>Whole Wheat Spaghetti / Penne</span><span class="kr">통밀 파스타 + 마리나라소스</span></div>
+        <div class="menu-category">디저트</div>
+        <div class="menu-item"><span>Selection of Assorted Ice Cream</span><span class="kr">아이스크림</span></div>
+        <div class="menu-item"><span>Chocolate Dome / Cupcake (식당별 상이)</span><span class="kr">초코무스 / 컵케이크</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>🛳️ Disney Cruise Singapore Guide</strong>
+  싱가포르 출항 · 3박 4일 · @bellaleeon<br>
+  본 가이드는 실제 탑승 경험을 바탕으로 작성되었습니다.
+</div>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  function toggleAcc(header) {
+    const item = header.parentElement;
+    item.classList.toggle('open');
+  }
+
+  function toggleCheck(li) {
+    li.classList.toggle('checked');
+  }
+
+  // scroll top button
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    btn.classList.toggle('show', window.scrollY > 300);
+  });
+</script>
+</body>
+</html>
