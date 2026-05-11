@@ -170,6 +170,32 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 
 @media(max-width:360px){.hero h1{font-size:20px;}.tab{font-size:11px;padding:12px 3px;}.fg{grid-template-columns:1fr;}}
 @media(min-width:520px){.hero h1{font-size:28px;}.sec{padding:24px 24px 80px;}}
+
+/* ── EMAIL BOX ── */
+.email-box{background:var(--bg2);border:1.5px solid var(--border);border-radius:12px;padding:16px;margin-top:14px;font-size:13px;}
+.email-to,.email-subject{display:flex;gap:8px;align-items:flex-start;margin-bottom:6px;line-height:1.5;}
+.email-label{font-size:11px;font-weight:700;color:var(--gold);background:rgba(200,151,58,.12);padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px;letter-spacing:.5px;}
+.email-addr{color:var(--navy);font-weight:600;word-break:break-all;}
+.email-divider{height:1px;background:var(--border);margin:10px 0;}
+.email-body{color:var(--text);line-height:1.75;white-space:pre-wrap;font-size:13px;}
+.email-copy-btn{width:100%;margin-top:14px;padding:12px;background:var(--navy);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:background .2s;min-height:50px;}
+.email-copy-btn:active{background:var(--navy2);}
+
+/* ── PHOTO GRID (uniform thumbnails) ── */
+.pgrid{display:grid;gap:8px;margin-top:14px;}
+.pgrid-3{grid-template-columns:repeat(3,1fr);}
+.pgrid-2{grid-template-columns:repeat(2,1fr);}
+.pgrid .pcell{position:relative;aspect-ratio:1/1;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--bg2);box-shadow:0 2px 8px rgba(28,58,92,.08);}
+.pgrid .pcell img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;display:block;transition:transform .3s;}
+.pgrid .pcell:active img{transform:scale(1.05);}
+.pgrid .pcell.empty{border:2px dashed var(--border);background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:22px;}
+.pgrid .pcell.empty::after{content:"+";font-weight:300;font-size:32px;color:var(--sub);opacity:.5;}
+.pgrid-hint{font-size:11px;color:var(--sub);text-align:center;margin-top:8px;}
+
+/* Single small centered photo */
+.pcenter{margin:14px auto 0;max-width:240px;border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);}
+.pcenter img{width:100%;height:auto;display:block;cursor:zoom-in;aspect-ratio:1/1;object-fit:cover;}
+
 </style>
 </head>
 <body>
@@ -220,10 +246,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
         <span class="acc-arr">▼</span>
       </div>
       <div class="acc-bd"><ul class="cl">
-        <li onclick="chk(this)"><div class="ck">✓</div><span>디즈니 크루즈 앱 <strong>사전 다운로드</strong> ( — 꼭 🇰🇷한국에서 미리 다운받아 가세요. 로그인까지 제발!!!)</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>디즈니 크루즈 앱 <strong>사전 다운로드</strong> (현지 받으면 느림 — 꼭 미리!)</span></li>
         <li onclick="chk(this)"><div class="ck">✓</div><span>웹 체크인 완료</span></li>
         <li onclick="chk(this)"><div class="ck">✓</div><span>QR코드 인쇄 해가기</span></li>
-        <li onclick="chk(this)"><div class="ck">✓</div><span>싱가포르 입국심사 사전 신청 (MyICA Mobile어플 다운)</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>싱가포르 입국심사 사전 신청</span></li>
         <li onclick="chk(this)"><div class="ck">✓</div><span>여권 유효기간 <strong>6개월 이상</strong> 확인</span></li>
       </ul></div>
     </div>
@@ -234,11 +260,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
         <span class="acc-arr">▼</span>
       </div>
       <div class="acc-bd"><ul class="cl">
-        <li onclick="chk(this)"><div class="ck">✓</div><span>사전 좌석 지정 / 수화물 체크</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>공항 사전 좌석 지정 / 수화물 체크</span></li>
         <li onclick="chk(this)"><div class="ck">✓</div><span>로밍 또는 이심 신청</span></li>
         <li onclick="chk(this)"><div class="ck">✓</div><span>그랩(Grab) 앱 다운 + 카드 미리 등록</span></li>
       </ul>
-      <div class="tip"><strong>⚠️ 핸드캐리 필수!</strong><br>크루즈 터미널에서 체크인 시 큰 짐은 맡겨지므로 짐 오기 전까지 필요한 것은 직접 들고 타야 해요.<br>충전기 · 수영복 · 슬리퍼 · 갈아입을 옷</div>
+      <div class="tip"><strong>⚠️ 핸드캐리 필수!</strong><br>체크인 시 큰 짐은 맡겨지므로 짐 오기 전까지 필요한 것은 직접 들고 타야 해요.<br>충전기 · 수영복 · 슬리퍼 · 갈아입을 옷</div>
       </div>
     </div>
 
@@ -250,6 +276,36 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
       <div class="acc-bd"><ul class="cl">
         <li onclick="chk(this)"><div class="ck">✓</div><span>기념일 있을 경우 헐리우드 / 애니메이터 식당 예약 <strong>메일 발송</strong> (방번호, 이름 포함)</span></li>
       </ul>
+
+      <div class="email-box">
+        <div class="email-to">
+          <span class="email-label">To</span>
+          <span class="email-addr">Disneycruiseline@email.disneycruiseline.asia</span>
+        </div>
+        <div class="email-subject">
+          <span class="email-label">Subject</span>
+          <span>Special Dining Request – Hollywood & Vine and Animator's Palate</span>
+        </div>
+        <div class="email-divider"></div>
+        <div class="email-body" id="emailBody">Dear Disney Cruise Line Team,
+
+I hope this message finds you well. I am writing to make a special dining request for my upcoming cruise.
+
+My party would love to have the opportunity to dine at both Hollywood &amp; Vine and Animator's Palate during our voyage. These two restaurants are at the very top of our must-experience list, and we would be truly grateful if you could arrange for us to visit both.
+
+Could you please confirm our dinner reservations to include both restaurants? We are happy to provide our booking reference, room number, and guest names upon request.
+
+Thank you so much for your wonderful service — we cannot wait to set sail!
+
+Warm regards,
+[Your Name]
+Room: [Room Number]
+Booking Reference: [Booking Number]</div>
+        <button class="email-copy-btn" onclick="copyEmail()">
+          <span id="copyBtnText">📋 메일 내용 복사하기</span>
+        </button>
+      </div>
+
       <div class="tip"><strong>🎭 Remember 공연 꿀팁</strong><br>공연은 이미 날짜가 지정되어 있어요. 앱에서 <strong>내 공연 시간 꼭 확인</strong>하고 챙겨보기!<br>💡 1시간 전 줄 서서 <strong>4번째 줄 가운데 자리</strong> 선점하기 (1~3열은 컨시어지 전용)</div>
       </div>
     </div>
@@ -270,10 +326,12 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
         <li><div class="dot"></div><div><strong>이름 자석 추천</strong> — 복도에서 이웃이 이름 불러주며 자연스럽게 인사</div></li>
         <li><div class="dot"></div><div>여행 목적(첫 크루즈, 생일, 기념일)을 테마로 꾸미면 더 많은 축하 인사!</div></li>
       </ul>
-      <div class="photo-wrap" style="margin-top:14px;">
-        <img src="door-deco.jpg" alt="디즈니 크루즈 객실 문 데코 (9382호)" onclick="openLbDirect('door-deco.jpg','문꾸')" style="cursor:zoom-in;">
+      <div class="pgrid pgrid-3">
+        <div class="pcell"><img src="door-deco.jpg" alt="9382호 문 데코" onclick="openLbDirect('door-deco.jpg','문꾸')"></div>
+        <div class="pcell empty"></div>
+        <div class="pcell empty"></div>
       </div>
-      <div class="hint">실제 9382호 객실 문 — 풍선·스티커·테마 자석으로 꾸며요</div>
+      <div class="pgrid-hint"></div>
       </div>
     </div>
 
@@ -285,25 +343,20 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
       <div class="acc-bd">
         <p style="font-size:13px;color:var(--sub);margin-top:12px;margin-bottom:12px;">문 옆 물고기 모양 고리에 주머니를 달아두고, 매칭된 팀원들과 작은 선물을 주고받는 활동이에요.</p>
         <div class="sp"><h3>🎁 추천 선물 아이템</h3><ul>
-          <li>카드키 랜야드 (Lanyard)</li>
+          <li>한국 간식이나 K-pop아이템</li>
           <li>선실 내 자석 고리</li>
           <li>수건 고정용 집게</li>
           <li>한국 전통 문양 책갈피 / 소포장 간식</li>
-          <li>방번호·SNS 연결 QR코드 카드 동봉</li>
+          <li>방번호·SNS 연결 연락처 카드 동봉</li>
         </ul></div>
         <div class="alert"><span>⚠️</span><span>선물 30개 이상 준비 추천! 받을 만큼 빈 가방 하나 더 챙기세요.</span></div>
-        <div class="photo-wrap" style="margin-top:14px;">
-          <img src="fish-extender-haul.jpg" alt="3박 4일간 받은 피쉬 익스텐션 선물 전체" onclick="openLbDirect('fish-extender-haul.jpg','피쉬익스텐션_전체')" style="cursor:zoom-in;">
+        <div class="pgrid pgrid-2">
+          <div class="pcell"><img src="fish-extender-haul.jpg" alt="3일간 받은 선물 전체" onclick="openLbDirect('fish-extender-haul.jpg','피쉬익스텐션_전체')"></div>
+          <div class="pcell"><img src="fish-extender-bed.jpg" alt="객실 침대에서 펼쳐본 선물들" onclick="openLbDirect('fish-extender-bed.jpg','피쉬익스텐션_침대')"></div>
+          <div class="pcell"><img src="fish-extender-gift.jpg" alt="보석함 선물" onclick="openLbDirect('fish-extender-gift.jpg','피쉬익스텐션_선물')"></div>
+          <div class="pcell empty"></div>
         </div>
-        <div class="hint">3박 4일간 받은 선물 전체 — 정말 가방 하나 더 필요해요!</div>
-        <div class="photo-wrap" style="margin-top:14px;">
-          <img src="fish-extender-bed.jpg" alt="객실 침대에서 펼쳐본 선물들" onclick="openLbDirect('fish-extender-bed.jpg','피쉬익스텐션_침대')" style="cursor:zoom-in;">
-        </div>
-        <div class="hint">매일 객실로 돌아오면 새 선물이 도착해 있어요</div>
-        <div class="photo-wrap" style="margin-top:14px;">
-          <img src="fish-extender-gift.jpg" alt="식당에서 받은 보석함 선물 — 디즈니 캐릭터 끈과 함께" onclick="openLbDirect('fish-extender-gift.jpg','피쉬익스텐션_선물')" style="cursor:zoom-in;">
-        </div>
-        <div class="hint">한국에서 준비한 디즈니 캐릭터 끈 ✨ — 작은 선물이 큰 추억으로</div>
+        <div class="pgrid-hint">사진 탭하면 크게 보여요 · 사진 추가 가능</div>
       </div>
     </div>
 
@@ -319,10 +372,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
           <li><div class="dot"></div><div>아이들이 가장 좋아하는 디즈니 크루즈만의 시그니처</div></li>
           <li><div class="dot"></div><div>사진 찍어두면 좋은 기념! 일정 끝나면 "<strong>동물원</strong>" 완성 ✨</div></li>
         </ul>
-        <div class="photo-wrap" style="margin-top:14px;">
-          <img src="towel-art.jpg" alt="디즈니 크루즈 객실 타올 아트" onclick="openLbDirect('towel-art.jpg','타올_아트')" style="cursor:zoom-in;">
+        <div class="pcenter">
+          <img src="towel-art.jpg" alt="디즈니 크루즈 객실 타올 아트" onclick="openLbDirect('towel-art.jpg','타올_아트')">
         </div>
-        <div class="hint">이미지 탭하면 크게 보여요</div>
+        <div class="pgrid-hint">탭하면 크게 보여요</div>
       </div>
     </div>
 
@@ -509,7 +562,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 
     <div class="acc">
       <div class="acc-hd" onclick="tog(this)">
-        <div class="acc-l"><span class="acc-em">🍶</span><div><div class="acc-t">술 반입 규정</div><div class="acc-s">소주는 라벨 제거 시 가능</div></div></div>
+        <div class="acc-l"><span class="acc-em">🍶</span><div><div class="acc-t">술 반입 규정</div><div class="acc-s">소주는 라벨 제거하니 물인줄 알고 반입 되었어요 (규정은 안됩니다)</div></div></div>
         <span class="acc-arr">▼</span>
       </div>
       <div class="acc-bd">
@@ -518,7 +571,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
           <tr><td>와인</td><td>✅ 1병</td></tr>
           <tr><td>맥주</td><td>✅ 6캔 (355ml, 500ml 불가)</td></tr>
           <tr><td>독주</td><td>❌ 불가</td></tr>
-          <tr><td>소주</td><td>⚠️ 라벨 제거 시 반입 가능</td></tr>
+          <tr><td>소주</td><td>⚠️ 규정은 불가</td></tr>
         </table>
       </div>
     </div>
@@ -735,6 +788,28 @@ function openLbDirect(src, name){
   img.dataset.dlname = name || 'image';
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+
+// Copy anniversary reservation email to clipboard
+function copyEmail(){
+  const body = document.getElementById('emailBody');
+  const text = body.innerText;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.getElementById('copyBtnText');
+    btn.textContent = '✅ 복사 완료!';
+    setTimeout(()=>{ btn.textContent = '📋 메일 내용 복사하기'; }, 2500);
+  }).catch(()=>{
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const btn = document.getElementById('copyBtnText');
+    btn.textContent = '✅ 복사 완료!';
+    setTimeout(()=>{ btn.textContent = '📋 메일 내용 복사하기'; }, 2500);
+  });
 }
 
 // Jump from hero badge to a specific tab (and optionally open an accordion inside it)
