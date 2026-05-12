@@ -210,7 +210,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
   <span class="hero-em">🛳️</span>
   <div class="hero-tag">Disney Cruise Line · Singapore</div>
   <h1>디즈니 크루즈<br>완벽 가이드</h1>
-  <p>싱가포르 출항 · 마리나베이 크루즈 터미널 · 3박 4일</p>
+  <p>싱가포르 출항 · 마리나베이 크루즈 터미널 · 3박 기준</p>
   <div class="hero-badges">
     <button type="button" class="hbadge" onclick="jumpTo('pre')">✈️ 출발 전 준비</button>
     <button type="button" class="hbadge" onclick="jumpTo('d1')">🎡 승선 꿀팁</button>
@@ -235,7 +235,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
     <button class="tab on" onclick="showTab('pre',this)">✈️ 승선전</button>
     <button class="tab" onclick="showTab('d1',this)">🏁 1일차</button>
     <button class="tab" onclick="showTab('d2',this)">🌊 2일차</button>
-    <button class="tab" onclick="showTab('d3',this)">🍽️ 3일차</button>
+    <button class="tab" onclick="showTab('d3',this)">🍽️ 3일차(레스토랑)</button>
     <button class="tab" onclick="showTab('off',this)">🧳 하선</button>
   </div>
 </div>
@@ -251,11 +251,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
         <span class="acc-arr">▼</span>
       </div>
       <div class="acc-bd"><ul class="cl">
-        <li onclick="chk(this)"><div class="ck">✓</div><span>디즈니 크루즈 앱 <strong>사전 다운로드</strong> (현지 받으면 느림 — 꼭 미리!)</span></li>
-        <li onclick="chk(this)"><div class="ck">✓</div><span>웹 체크인 완료</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>디즈니 크루즈 앱 <strong>사전 다운로드</strong> (꼭 미리!🇰🇷한국에서 받아가세요 (로그인까지 해주셔야 합니다.)</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>웹 체크인 완료하기</span></li>
         <li onclick="chk(this)"><div class="ck">✓</div><span>QR코드 인쇄 해가기</span></li>
-        <li onclick="chk(this)"><div class="ck">✓</div><span>싱가포르 입국심사 사전 신청</span></li>
-        <li onclick="chk(this)"><div class="ck">✓</div><span>여권 유효기간 <strong>6개월 이상</strong> 확인</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>싱가포르 입국심사 사전 신청 (어플다운)</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>여권 유효기간 <strong>출발기준 6개월 이상</strong> 확인</span></li>
       </ul></div>
     </div>
 
@@ -265,11 +265,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
         <span class="acc-arr">▼</span>
       </div>
       <div class="acc-bd"><ul class="cl">
-        <li onclick="chk(this)"><div class="ck">✓</div><span>공항 사전 좌석 지정 / 수화물 체크</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>항공 사전 좌석 지정 / 수화물 체크</span></li>
         <li onclick="chk(this)"><div class="ck">✓</div><span>로밍 또는 이심 신청</span></li>
-        <li onclick="chk(this)"><div class="ck">✓</div><span>그랩(Grab) 앱 다운 + 카드 미리 등록</span></li>
+        <li onclick="chk(this)"><div class="ck">✓</div><span>그랩(Grab) 앱 다운 + 결제 카드 미리 등록하기</span></li>
       </ul>
-      <div class="tip"><strong>⚠️ 핸드캐리 필수!</strong><br>체크인 시 큰 짐은 맡겨지므로 짐 오기 전까지 필요한 것은 직접 들고 타야 해요.<br>충전기 · 수영복 · 슬리퍼 · 갈아입을 옷</div>
+      <div class="tip"><strong>⚠️ 핸드캐리 필수!</strong><br>크루즈 체크인 시 큰 짐은 체크인 할때 보내서 문앞으로 가져다 줍니다. 짐 오기 전까지 필요한 것은 직접 들고 타야 해요.<br>충전기 · 수영복 · 슬리퍼 · 갈아입을 옷</div>
       </div>
     </div>
 
@@ -311,8 +311,7 @@ Booking Reference: [Booking Number]</div>
         </button>
       </div>
 
-      <div class="tip"><strong>🎭 Remember 공연 꿀팁</strong><br>공연은 이미 날짜가 지정되어 있어요. 앱에서 <strong>내 공연 시간 꼭 확인</strong>하고 챙겨보기!<br>💡 1시간 전 줄 서서 <strong>4번째 줄 가운데 자리</strong> 선점하기 (1~3열은 컨시어지 전용)</div>
-      </div>
+     
     </div>
 
     <div class="acc">
@@ -321,12 +320,11 @@ Booking Reference: [Booking Number]</div>
         <span class="acc-arr">▼</span>
       </div>
       <div class="acc-bd">
-        <p style="font-size:13px;color:var(--sub);margin-top:12px;margin-bottom:6px;">디즈니 캐릭터들과 함께하는 조식은 인기가 많아 빨리 마감돼요. 아래 영상 보고 그대로 따라하면 됩니다.</p>
+        <p style="font-size:13px;color:var(--sub);margin-top:12px;margin-bottom:6px;">디즈니 크루즈 조식 신청 - 전날 새벽3시까지 문고리에 걸어두시면 됩니다. <br> 아래 영상 보고 그대로 따라하면 됩니다.</p>
         <div class="video-short">
           <iframe src="https://www.youtube.com/embed/f2bincNDLF4" title="디즈니 조식 신청 방법" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
-        <div class="tip" style="margin-top:14px;"><strong>💡 신청 타이밍</strong><br>승선하자마자 앱에서 바로 확인하세요. <strong>오후 5:30 놀이기구 예약과 같은 날 오픈</strong>되니 미리 알람 맞춰두면 좋아요.</div>
-      </div>
+       
     </div>
 
   </div>
